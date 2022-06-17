@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sugerencia en la captura</title>
+	<meta charset="utf-8">
+	<script>
+		function sugerencia(cadena){
+			if (cadena.length==0) {
+				document.getElementById("sugerencia").innerHTML = "";
+				return;
+			} else {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState==4 && this.status==200) {
+						document.getElementById("sugerencia").innerHTML = this.responseText;
+					}
+				}
+				xmlhttp.open("GET","paises.php?q="+cadena,true);
+				xmlhttp.send();
+			}
+		}
+	</script>
+</head>
+<body>
+	<h2>Selecciona un país</h2>
+	<form>
+		País:<input type="text" onkeyup="sugerencia(this.value)"/>
+	</form>
+	<p>Sugerencia:<span id="sugerencia"></span></p>
+</body>
+</html>

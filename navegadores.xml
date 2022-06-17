@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navegadores>
+<navegador nombre="Chrome" porcien="8.7" fecha="2017"/>
+<navegador nombre="IE-Edge" porcien="4.6" fecha="2017"/>
+<navegador nombre="Firefox" porcien="13.6" fecha="2017"/>
+<navegador nombre="Safari" porcien="3.7" fecha="2017"/>
+<navegador nombre="Opera" porcien="1.1" fecha="2017"/>
+</navegadores>

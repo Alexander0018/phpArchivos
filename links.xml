@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dioses>
+  <link>
+    <dios>Zeus</dios>
+    <url>https://es.wikipedia.org/wiki/Zeus</url>
+  </link>
+  <link>
+    <dios>Poseidón</dios>
+    <url>https://es.wikipedia.org/wiki/Poseidon</url>
+  </link>
+  <link>
+    <dios>Ares</dios>
+    <url>https://es.wikipedia.org/wiki/Ares</url>
+  </link>
+  <link>
+    <dios>Afrodita</dios>
+    <url>https://es.wikipedia.org/wiki/Afrodita</url>
+  </link>
+  <link>
+    <dios>Hera</dios>
+    <url>https://es.wikipedia.org/wiki/Hera</url>
+  </link>
+  <link>
+    <dios>Atenea</dios>
+    <url>https://es.wikipedia.org/wiki/Atenea</url>
+  </link>
+  <link>
+    <dios>Hermes</dios>
+    <url>https://es.wikipedia.org/wiki/Hermes</url>
+  </link>
+  <link>
+    <dios>Apolo</dios>
+    <url>https://es.wikipedia.org/wiki/Apolo</url>
+  </link>
+  <link>
+    <dios>Artemisa</dios>
+    <url>https://es.wikipedia.org/wiki/Artemisa</url>
+  </link>
+  <link>
+    <dios>Hefesto</dios>
+    <url>https://es.wikipedia.org/wiki/Hefesto</url>
+  </link>
+</dioses>

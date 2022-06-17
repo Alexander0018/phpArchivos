@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax07 conexion con PHP a la base de datos y el formato XML</title>
+	<meta charset="utf-8">
+	<script>
+		function buscaAlumnos(p){
+			if (p.length==0) {
+				document.getElementById("alumnos").innerHTML = "";
+				return;
+			}
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+				//alert("El navegador si soporta XMLHTTP");
+			} else {
+				//IE 5y6
+				xmlhttp = new ActiveXObject("Microsoft.HMLHTTP");
+				alert("Tu navegador no soporta XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function(){
+				//console.log(xmlhttp.readyState,xmlhttp.status);
+				if(xmlhttp.readyState==4){
+					if(xmlhttp.status==200){
+						//Vaciamos la información en salida
+						procesaArchivo(xmlhttp.responseXML);
+					} else {
+						document.getElementById("alumnos").innerHTML="<p>Error en el proceso de lectura del archivo. Error "+xmlhttp.status;
+					}
+					
+				}
+			}
+			//GET o POST, url, true=>Asincrono false=>Sincrono
+			xmlhttp.open("GET","alumnos.php?q="+p,true);
+			//Ejecutamos la lectura
+			xmlhttp.send();
+		}
+		function procesaArchivo(objetoXML){
+			var cadena = "<table border='1'><tr><th>Nombres</th><th>Apellidos</th><th>Promedio</th></tr>";
+			var a = objetoXML.documentElement.getElementsByTagName("alumno");
+			document.getElementById("alumnos").innerHTML = "Alumnos: "+a.length;
+			for (var i=0; i<a.length; i++) {
+				cadena += "<tr>";
+				nom = a[i].getElementsByTagName("nombres");
+				{
+					try{
+						cadena += "<td>"+nom[0].firstChild.nodeValue+"</td>";
+					}
+					catch(err){
+						cadena += "<td></td>";
+					}
+				}
+				ap = a[i].getElementsByTagName("apellidos");
+				{
+					try{
+						cadena += "<td>"+ap[0].firstChild.nodeValue+"</td>";
+					}
+					catch(err){
+						cadena += "<td></td>";
+					}
+				}
+				pro = a[i].getElementsByTagName("promedio");
+				{
+					try{
+						cadena += "<td>"+pro[0].firstChild.nodeValue+"</td>";
+					}
+					catch(err){
+						cadena += "<td></td>";
+					}
+				}
+				cadena += "</tr>";
+			}
+			cadena += "</table>";
+			document.getElementById("salida").innerHTML = cadena;
+		}
+	</script>
+</head>
+<body>
+<button onclick="buscaAlumnos('A')">A</button>
+<button onclick="buscaAlumnos('B')">B</button>
+<button onclick="buscaAlumnos('C')">C</button>
+<button onclick="buscaAlumnos('D')">D</button>
+<button onclick="buscaAlumnos('E')">E</button>
+<button onclick="buscaAlumnos('F')">F</button>
+<p><span id="alumnos"></span></p>
+</div>
+<div id="salida"></div>
+</body>
+</html>
